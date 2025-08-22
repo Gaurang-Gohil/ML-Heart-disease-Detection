@@ -1,0 +1,22 @@
+name: Manual Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_env:
+        description: 'Test Environment'
+        required: true
+        type: string
+      test_suite:
+        description: 'Test Suite Name'
+        required: false
+        type: string
+
+jobs:
+  manual-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show Inputs
+        run: |
+          echo "Test Environment: ${{ github.event.inputs.test_env }}"
+          echo "Test Suite: ${{ github.event.inputs.test_suite }}"
