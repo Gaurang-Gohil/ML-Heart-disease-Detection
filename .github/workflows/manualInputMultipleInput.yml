@@ -1,0 +1,26 @@
+name: Manual input Multiple Inputs
+
+on: 
+  workflow_dispatch:
+    inputs: 
+      environment: 
+        description: 'Environment name here'
+        required: true
+        default: 'production'
+
+      notify:
+        description: 'Do you want to see name again?'
+        type: boolean
+        default: false
+        
+jobs: 
+  deploy: 
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "the environment is ${{ github.event.inputs.environment }} environment"
+
+  notify:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.notify }} == true
+    steps:
+      - run: echo "the environment is ${{ github.event.inputs.environment }} environment"
