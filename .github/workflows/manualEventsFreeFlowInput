@@ -1,0 +1,17 @@
+name: Manual input Free Flow Input
+
+on: 
+  workflow_dispatch:
+    inputs: 
+      environment: 
+        description: 'Environment name here'
+        required: true
+        default: 'production'
+
+jobs: 
+  deploy: 
+    runs-on: ubuntu-latest
+      steps: 
+        -run echo"the environment is {{ github.event.input.environment }} environment"
+    
+      
