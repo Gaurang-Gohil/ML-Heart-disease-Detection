@@ -21,6 +21,6 @@ jobs:
 
   notify:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.notify }}
+    if: ${{ github.event.inputs.notify == 'true'}}
     steps:
       - run: echo "the environment is ${{ github.event.inputs.environment }} environment"
