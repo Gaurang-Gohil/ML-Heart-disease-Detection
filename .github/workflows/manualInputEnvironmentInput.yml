@@ -1,4 +1,4 @@
-name: Manual input Free Flow Input
+name: Manual input Environment Input
 
 on: 
   workflow_dispatch:
