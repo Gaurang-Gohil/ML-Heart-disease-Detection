@@ -1,0 +1,20 @@
+name: Manual input choice Input
+
+on: 
+  workflow_dispatch:
+    inputs: 
+      environment: 
+        description: 'Environment name here'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production  
+          - dev
+          - ui
+
+jobs: 
+  deploy: 
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "the environment is ${{ github.event.inputs.environment }} environment"
