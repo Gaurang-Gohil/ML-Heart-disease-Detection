@@ -1,0 +1,14 @@
+name: repo dispatch
+
+on: 
+  repository_dispatch:
+    types: 
+     - my_custom_event
+
+jobs:
+  my_custom_job:
+    runs-on: ubuntu-lateat
+
+    steps:
+      - name: Custom event triggered
+        run: echo "The event that triggered this was ${{ github.event.action }}"
