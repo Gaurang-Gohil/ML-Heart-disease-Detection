@@ -7,8 +7,15 @@ on:
 
 jobs:
   my_custom_job:
-    runs-on: ubuntu-lateat
+    runs-on: ubuntu-latest
 
     steps:
       - name: Custom event triggered
         run: echo "The event that triggered this was ${{ github.event.action }}"
+
+
+# curl -X POST \
+# -H "Accept: application/vnd.github.v3+json" \
+# -H "Authorization: token YOUR_PERSONAL_ACCESS_TOKEN" \
+# https://api.github.com/repos/your-username/your-repo/dispatches \
+# -d '{"event_type": "my-custom-event"}'
